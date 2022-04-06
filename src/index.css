@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.section {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bd-grid {
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 2rem;
+  width: calc(100% - 2rem);
+  margin: auto;
+}
+
+.home {
+  height: 100vh;
+}
+
+.home_data {
+  align-self: center;
+}
+
+.home_social {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  flex-direction: row;
+  align-self: flex-end;
+}
+
+.home_social-icon {
+  width: max-content;
+  font-size: 1.75rem;
+  color: white;
+  margin-right: 2rem;
+}
+
+.particles {
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
