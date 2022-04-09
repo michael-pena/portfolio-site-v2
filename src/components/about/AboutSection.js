@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Typewriter from "typewriter-effect";
-
+import svgImage from "../../images/undraw_programming.svg";
 const BoxIcon = styled("i")({
   marginRight: "1rem",
 });
@@ -29,6 +29,15 @@ const LocationWrapper = styled("span")({
   alignItems: "center",
   borderTop: "1px solid white",
   width: "70%",
+});
+
+const LocationIcon = styled("i")({
+  marginRight: "5px",
+});
+
+const SVGImageSection = styled("div")({
+  display: "flex",
+  justifyContent: "center", 
 });
 
 const AboutSection = () => {
@@ -66,13 +75,10 @@ const AboutSection = () => {
           </p>
           <p>
             <BoxIcon className="bx bx-caret-right"></BoxIcon> When I'm not doing
-            CTFs, you can find me working with JavaScript (ES6+), React.js, Node.js, Python, and
-            Java.
+            CTFs, you can find me working with JavaScript (ES6+), React.js,
+            Node.js, Python, and Java.
           </p>
-          <p>
-            <BoxIcon className="bx bx-caret-right"></BoxIcon> I also like to
-            tinker with the Raspberry Pi using Python's GPIO library.
-          </p>          
+          <p><BoxIcon className="bx bx-caret-right"></BoxIcon> I also like to tinker with the Raspberry Pi using Python's GPIO library.</p>
           <p>
             Since 2016 - I've spent my time breaking and building things. This
             has led to me working on some amazing projects, worked at some
@@ -80,15 +86,19 @@ const AboutSection = () => {
           </p>
           <LocationWrapper>
             <p>
-              <BoxIcon className="bx bxs-map"></BoxIcon>Dallas-Fort Worth, TX
+              <LocationIcon
+                className="bx bxs-map"
+                marginRight="5px"
+              ></LocationIcon>
+              Dallas-Fort Worth, TX
             </p>
           </LocationWrapper>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
-          <Typography variant="p">
-            teadlks teadlks teadlks teadlksteadlksasda teadlks
-          </Typography>
+        <Grid item xs={12} sm={6} alignSelf="center">
+          <SVGImageSection>
+            <img src={svgImage} alt="programming svg" width="80%" />
+          </SVGImageSection>
         </Grid>
       </Grid>
     </Section>
