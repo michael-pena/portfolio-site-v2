@@ -16,31 +16,37 @@ const ProjectSection = () => {
       id: "movies",
       link: "https://github.com/michael-pena/flask-top-10-movies",
       img: movieImage,
+      title: "Top 10 Movies App"
     },
     {
       id: "seinfeld",
       link: "https://github.com/michael-pena/Seinfield-Motion-Sensor",
       img: seinfeldImage,
+      title: "Seinfeld Motion Sensor",
     },
     {
       id: "quizapp",
       link: "https://github.com/michael-pena/Video-Game-Quiz-App",
       img: quizImage,
+      title: "Video Game Quiz App",
     },
     {
       id: "superchat",
       link: "https://github.com/michael-pena/SuperChat",
       img: superchatImage,
+      title: "Super Chat",
     },
     {
       id: "twitterbot",
       link: "https://github.com/michael-pena/Twitter-ISP-Bot",
       img: twitterImage,
+      title: "ISP Twitterbot",
     },
     {
       id: "pypong",
       link: "https://github.com/michael-pena/pyPong",
       img: pyPongImage,
+      title: "PyPong"
     },
   ];
 
@@ -50,7 +56,7 @@ const ProjectSection = () => {
         {projectsData.map((item) => (
           <ProjectItem
             key={item.id}
-            title={item.id}
+            title={item.title}
             link={item.link}
             img={item.img}
           />

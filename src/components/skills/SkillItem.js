@@ -11,8 +11,7 @@ const SkillItem = (props) => {
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    color: theme.palette.text.secondary,
-    borderBottom: "3px solid",    
+    borderBottom: `3px solid ${theme.palette.text.secondary}`,    
   }));
 
   const SkillData = styled("span")({    

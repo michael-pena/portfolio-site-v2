@@ -5,7 +5,7 @@ import SectionTitle from "./SectionTitle";
 const Underline = styled("div")({
   borderTop: "4px solid",
   margin: "0 auto",
-  marginBottom: "15px",
+  marginBottom: "2.5rem",
   width: "70px",
 });
 
