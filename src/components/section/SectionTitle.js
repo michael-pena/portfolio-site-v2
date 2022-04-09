@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 
 const Title = styled(Typography)(({ theme }) => ({    
     margin: "auto",
-    marginTop: "5rem",
+    marginTop: "7rem",
     textAlign: "center",
   }));
 
