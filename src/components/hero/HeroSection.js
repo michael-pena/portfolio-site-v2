@@ -1,9 +1,9 @@
 import { Avatar, Grid, Typography } from "@mui/material";
 import React from "react";
-import Particles from "react-tsparticles";
 import Typewriter from "typewriter-effect";
 import { styled } from "@mui/material/styles";
 import profilepicture from "../../images/linkedin-profile.jpg";
+import SocialMedia from "../socialmedia/SocialMedia";
 
 const SocialIcon = styled("a")(({ theme }) => ({
   width: "max-content",
@@ -31,7 +31,6 @@ const HomeDataSection = styled("div")({
 });
 
 const HeroSection = () => {
-
   const particlesInit = (main) => {
     console.log(main);
 
@@ -49,11 +48,11 @@ const HeroSection = () => {
         justifyContent="center"
         alignItems="center"
         columnSpacing={{ sm: 2, md: 2 }}
-      >                
+      >
         <Grid item xs={12} sm={6}>
-        <HomeDataSection>
-          <BorderedAvatar alt="Michael Pena" src={profilepicture} />
-        </HomeDataSection>
+          <HomeDataSection>
+            <BorderedAvatar alt="Michael Pena" src={profilepicture} />
+          </HomeDataSection>
           <HomeDataSection>
             <Typography variant="h3" marginTop="3rem">
               Hi, I'm Michael Pena
@@ -80,24 +79,7 @@ const HeroSection = () => {
               />
             </Typography>
           </HomeDataSection>
-          <HomeDataSection>
-            <div className="home_social">
-              <SocialIcon
-                href="https://www.linkedin.com/in/michael-pena"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="bx bxl-linkedin"></i>
-              </SocialIcon>
-              <SocialIcon
-                href="https://www.github.com/michael-pena"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="bx bxl-github"></i>
-              </SocialIcon>
-            </div>
-          </HomeDataSection>                
+          <SocialMedia />
         </Grid>
       </Grid>
     </section>

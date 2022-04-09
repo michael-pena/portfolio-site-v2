@@ -28,7 +28,6 @@ html {
 
 .home_social {
   padding-top: 2rem;
-  padding-bottom: 2.5rem;
   flex-direction: row;
   align-self: flex-end;
 }
@@ -37,7 +36,6 @@ html {
   width: max-content;
   font-size: 1.75rem;
   color: white;
-  margin-right: 2rem;
 }
 
 .particles {

@@ -29,7 +29,7 @@ const SkillItem = (props) => {
   });
 
   return (
-    <Grid item spacing={1}  xs={12} sm={6}>
+    <Grid item xs={12} sm={6}>
       <Item>
         <SkillData>
           <BoxIcon className={props.code}></BoxIcon>

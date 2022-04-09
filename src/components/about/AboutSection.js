@@ -87,8 +87,7 @@ const AboutSection = () => {
           <LocationWrapper>
             <p>
               <LocationIcon
-                className="bx bxs-map"
-                marginRight="5px"
+                className="bx bxs-map"              
               ></LocationIcon>
               Dallas-Fort Worth, TX
             </p>

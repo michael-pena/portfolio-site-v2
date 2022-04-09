@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Section from "../section/Section";
-import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import { Button, TextField } from "@mui/material";
-import { borderRadius, width } from "@mui/system";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { useForm, ValidationError } from "@formspree/react";
 
 const ContactForm = styled("div")(({ theme }) => ({
   margin: "0 auto 0 auto",
@@ -19,7 +19,7 @@ const ContactField = styled(TextField)(({ theme }) => ({
   "& label.Mui-focused": {
     color: "white",
   },
-  '& .MuiInput-underline:after': {
+  "& .MuiInput-underline:after": {
     borderBottomColor: theme.palette.action.selected,
   },
 }));
@@ -35,28 +35,39 @@ const ContactSubmitButton = styled(Button)(({ theme }) => ({
 }));
 
 const ContactSection = () => {
+  const [state, handleSubmit] = useForm("xbjwzljn");
+  if (state.succeeded) {
+    console.log("email sent!")
+  }
   return (
     <Section title="Contact">
       <ContactForm>
-        <form>
+        <form onSubmit={handleSubmit}>
           <ContactField
-            variant="filled"
+            id="email"
+            name="email"
             label="Email"
             type="email"
-            name="email"
+            variant="filled"
             required
           />
-
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
           <ContactField
-            variant="filled"
+            id="message"
+            name="message"
             label="Message"
             type="text"
-            name="message"
+            variant="filled"
             multiline
             rows="5"
             required
           />
-          <ContactSubmitButton variant="contained" type="submit">
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+          />
+          <ContactSubmitButton variant="contained" type="submit" disabled={state.submitting}>
             Submit
           </ContactSubmitButton>
         </form>

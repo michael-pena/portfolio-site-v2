@@ -1,6 +1,7 @@
 import "./App.css";
 import AboutSection from "./components/about/AboutSection";
 import ContactSection from "./components/contact/ContactSection";
+import FooterSection from "./components/footer/Footer";
 import ButtonAppBar from "./components/header/ButtonAppBar";
 import HeroSection from "./components/hero/HeroSection";
 import ProjectSection from "./components/projects/ProjectSection";
@@ -16,6 +17,7 @@ function App() {
       <Skills />
       <ProjectSection />
       <ContactSection />
+      <FooterSection />
     </div>
   );
 }
