@@ -9,6 +9,7 @@ const FooterSection = () => {
     const Footer = styled("footer")(({ theme }) => ({
         textAlign: "center",
         marginTop: "6rem",
+        paddingBottom: "2rem",
         backgroundColor: theme.palette.action.disabledBackground
       }));
 
