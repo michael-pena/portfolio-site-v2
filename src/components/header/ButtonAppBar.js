@@ -24,7 +24,6 @@ export default function ButtonAppBar() {
   const NavLinks = styled("a")(({ theme }) => ({
     color: theme.palette.text.primary,
     textDecoration: "none",
-
   }));
 
   const NavListItem = styled("li")(({ theme }) => ({
@@ -54,96 +53,95 @@ export default function ButtonAppBar() {
     <header>
       <AppBar position="fixed">
         <div className="bd-grid">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
+          <Container maxWidth="xl">
+            <Toolbar disableGutters>
+              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                  }}
+                >
+                  {pageSections.map((page) => (
+                    <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                      <NavLinks href={`#${page.id.toLowerCase()}`}>
+                        {page.id}
+                      </NavLinks>
+                    </MenuItem>
+                  ))}
+                  <ResumeButton href={MyResume}>
+                    <Button variant="outlined" color="inherit">
+                      Resume
+                    </Button>
+                  </ResumeButton>
+                </Menu>
+              </Box>
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ display: { xs: "flex", md: "none" } }}
               >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+                MP
+              </Typography>
+
+              <Typography
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 1, display: { xs: "none", md: "inline" } }}
+              >
+                MP
+              </Typography>
+              <Box
                 sx={{
-                  display: { xs: "block", md: "none" },
+                  display: { xs: "none", md: "inline" },
                 }}
               >
-                {pageSections.map((page) => (
-                  <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                    <NavLinks href={`#${page.id.toLowerCase()}`}>
-                      {page.id}
-                    </NavLinks>
-                  </MenuItem>
-                ))}
-                <ResumeButton>
+                <ul>
+                  {pageSections.map((page) => (
+                    <NavListItem key={page.id}>
+                      <NavLinks href={`#${page.id.toLowerCase()}`}>
+                        {page.id}
+                      </NavLinks>
+                    </NavListItem>
+                  ))}
+                </ul>
+              </Box>
+              <Box
+                sx={{
+                  display: { xs: "none", md: "inline" },
+                }}
+              >
+                <ResumeButton href={MyResume}>
                   <Button variant="outlined" color="inherit">
                     Resume
                   </Button>
                 </ResumeButton>
-              </Menu>
-            </Box>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "flex", md: "none" } }}
-            >
-              MP
-            </Typography>
-
-
-            <Typography
-              variant="h5"
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", md: "inline" } }}
-            >
-              MP
-            </Typography>
-            <Box
-              sx={{
-                display: { xs: "none", md: "inline" },
-              }}
-            >
-              <ul>
-                {pageSections.map((page) => (
-                  <NavListItem key={page.id}>
-                    <NavLinks href={`#${page.id.toLowerCase()}`}>
-                      {page.id}
-                    </NavLinks>
-                  </NavListItem>
-                ))}
-              </ul>
-            </Box>
-            <Box
-              sx={{
-                display: { xs: "none", md: "inline" },
-              }}
-            >
-              <ResumeButton href={MyResume}>
-                <Button variant="outlined" color="inherit">
-                  Resume
-                </Button>
-              </ResumeButton>
-            </Box>
-          </Toolbar>
-        </Container>
+              </Box>
+            </Toolbar>
+          </Container>
         </div>
       </AppBar>
     </header>
