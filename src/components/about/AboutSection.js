@@ -1,10 +1,12 @@
 import React from "react";
 import Section from "../section/Section";
 import Grid from "@mui/material/Grid";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import Typewriter from "typewriter-effect";
 import svgImage from "../../images/undraw_programming.svg";
+import { Fade } from "react-reveal";
+
 const BoxIcon = styled("i")({
   marginRight: "1rem",
 });
@@ -43,8 +45,9 @@ const SVGImageSection = styled("div")({
 const AboutSection = () => {
   return (
     <Section id="About" title="About">
-      <Grid container rowSpacing={1} columnSpacing={{ sm: 2, md: 2 }}>
-        <Grid item xs={12} sm={6}>
+      <Fade duration={3000}>
+      <Grid container rowSpacing={1} columnSpacing={{ sm: 2, md: 2 }}>        
+        <Grid item xs={12} sm={6} className="about-text">
           <Typography variant="h5">Who am I?</Typography>
           <p>
             I'm Michael <NameIcon className="bx bxs-ghost"></NameIcon>
@@ -92,14 +95,14 @@ const AboutSection = () => {
               Dallas-Fort Worth, TX
             </p>
           </LocationWrapper>
-        </Grid>
-
+        </Grid>                
         <Grid item xs={12} sm={6} alignSelf="center">
           <SVGImageSection>
             <img src={svgImage} alt="programming svg" width="80%" />
           </SVGImageSection>
         </Grid>
       </Grid>
+      </Fade>
     </Section>
   );
 };

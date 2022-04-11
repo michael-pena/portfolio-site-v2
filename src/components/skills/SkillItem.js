@@ -2,6 +2,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import React from "react";
+import { Fade } from "react-reveal";
 
 const SkillItem = (props) => {
   
@@ -30,12 +31,14 @@ const SkillItem = (props) => {
 
   return (
     <Grid item xs={12} sm={6}>
+      <Fade top duration={2000}>
       <Item>
         <SkillData>
           <BoxIcon className={props.code}></BoxIcon>
           <span>{props.text}</span>        
           </SkillData>
       </Item>
+      </Fade>
     </Grid>
   );
 };

@@ -9,6 +9,7 @@ import quizImage from "../../images/quiz-ss.png";
 import twitterImage from "../../images/twitterbot-ss.png";
 import superchatImage from "../../images/superchat-ss.png";
 import pyPongImage from "../../images/pong-ss.png";
+import { Fade } from "react-reveal";
 
 const ProjectSection = () => {
   const projectsData = [
@@ -52,6 +53,7 @@ const ProjectSection = () => {
 
   return (
     <Section title="Projects">
+      <Fade top duration={2000} distance="70px">
       <Grid container rowSpacing={{xs: 2, m:3}} columnSpacing={{xs: 2, m:3}}>
         {projectsData.map((item) => (
           <ProjectItem
@@ -62,6 +64,7 @@ const ProjectSection = () => {
           />
         ))}
       </Grid>
+      </Fade>
     </Section>
   );
 };

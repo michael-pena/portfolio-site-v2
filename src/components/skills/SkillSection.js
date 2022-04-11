@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import React from "react";
 import SkillItem from "./SkillItem";
 import Section from "../section/Section";
+import { Fade } from "react-reveal";
 
 const skillList = [
   {
@@ -120,8 +121,8 @@ const SkillSection = () => {
   return (
     <Section id="skills" title="Skills">            
         <Grid container rowSpacing={1} columnSpacing={{ sm: 2, md: 2 }}>
-          {skillList.map((skill) => (
-            <SkillItem key={skill.id} code={skill.code} text={skill.text} />
+          {skillList.map((skill) => (            
+            <SkillItem key={skill.id} code={skill.code} text={skill.text} />            
           ))}
         </Grid>      
     </Section>

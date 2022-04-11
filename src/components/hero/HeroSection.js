@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import profilepicture from "../../images/linkedin-profile.jpg";
 import SocialMedia from "../socialmedia/SocialMedia";
 import ParticlesArea from "./ParticlesArea";
+import { Fade } from "react-reveal";
 
 
 const SocialIcon = styled("a")(({ theme }) => ({
@@ -48,6 +49,7 @@ const HeroSection = () => {
           columnSpacing={{ sm: 2, md: 2 }}
         >
           <Grid item xs={12} sm={6}>
+            <Fade top duration={2000}>
             <HomeDataSection>
               <BorderedAvatar alt="Michael Pena" src={profilepicture} />
             </HomeDataSection>
@@ -78,6 +80,7 @@ const HeroSection = () => {
               </Typography>
             </HomeDataSection>
             <SocialMedia />
+            </Fade>
           </Grid>
         </Grid>
       </section>
