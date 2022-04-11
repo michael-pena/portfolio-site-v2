@@ -4,7 +4,7 @@ import { Grid, Typography } from "@mui/material";
 import Section from "../section/Section";
 import ProjectItem from "./ProjectItem";
 import movieImage from "../../images/movie-app.gif";
-import seinfeldImage from "../../images/kramer.jpeg";
+import seinfeldImage from "../../images/kramer.jpg";
 import quizImage from "../../images/quiz-ss.png";
 import twitterImage from "../../images/twitterbot-ss.png";
 import superchatImage from "../../images/superchat-ss.png";
