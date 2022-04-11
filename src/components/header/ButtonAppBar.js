@@ -24,6 +24,7 @@ export default function ButtonAppBar() {
   const NavLinks = styled("a")(({ theme }) => ({
     color: theme.palette.text.primary,
     textDecoration: "none",
+
   }));
 
   const NavListItem = styled("li")(({ theme }) => ({

@@ -6,11 +6,11 @@ const Underline = styled("div")({
   borderTop: "4px solid",
   margin: "0 auto",
   marginBottom: "2.5rem",
-  width: "70px",
+  width: "70px",  
 });
 
 const Section = (props) => {
-  return (
+  return (    
     <section id={props.title.toLowerCase()} className="section bd-grid">
       <SectionTitle title={props.title} />
       <Underline></Underline>

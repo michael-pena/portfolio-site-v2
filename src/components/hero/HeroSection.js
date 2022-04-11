@@ -4,6 +4,8 @@ import Typewriter from "typewriter-effect";
 import { styled } from "@mui/material/styles";
 import profilepicture from "../../images/linkedin-profile.jpg";
 import SocialMedia from "../socialmedia/SocialMedia";
+import ParticlesArea from "./ParticlesArea";
+
 
 const SocialIcon = styled("a")(({ theme }) => ({
   width: "max-content",
@@ -31,58 +33,55 @@ const HomeDataSection = styled("div")({
 });
 
 const HeroSection = () => {
-  const particlesInit = (main) => {
-    console.log(main);
 
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-  };
-
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
 
   return (
-    <section id="home" className="home bd-grid">
-      <Grid
-        container
-        justifyContent="center"
-        alignItems="center"
-        columnSpacing={{ sm: 2, md: 2 }}
-      >
-        <Grid item xs={12} sm={6}>
-          <HomeDataSection>
-            <BorderedAvatar alt="Michael Pena" src={profilepicture} />
-          </HomeDataSection>
-          <HomeDataSection>
-            <Typography variant="h3" marginTop="3rem">
-              Hi, I'm Michael Pena
-            </Typography>
-          </HomeDataSection>
-          <HomeDataSection>
-            <Typography variant="h4">
-              <Typewriter
-                options={{
-                  strings: [
-                    " Software Developer",
-                    " JavaScript Developer",
-                    " React Developer",
-                    " Node.js Developer",
-                    " Python Developer",
-                    " Java Developer",
-                    " Backend Developer",
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 10,
-                  delay: 100,
-                }}
-              />
-            </Typography>
-          </HomeDataSection>
-          <SocialMedia />
+    <React.Fragment>
+      <div className="particles">
+        <ParticlesArea />
+      </div>
+      <section id="home" className="home bd-grid">
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          columnSpacing={{ sm: 2, md: 2 }}
+        >
+          <Grid item xs={12} sm={6}>
+            <HomeDataSection>
+              <BorderedAvatar alt="Michael Pena" src={profilepicture} />
+            </HomeDataSection>
+            <HomeDataSection>
+              <Typography variant="h3" marginTop="3rem">
+                Hi, I'm Michael Pena
+              </Typography>
+            </HomeDataSection>
+            <HomeDataSection>
+              <Typography variant="h4">
+                <Typewriter
+                  options={{
+                    strings: [
+                      " Software Developer",
+                      " JavaScript Developer",
+                      " React Developer",
+                      " Node.js Developer",
+                      " Python Developer",
+                      " Java Developer",
+                      " Backend Developer",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    deleteSpeed: 10,
+                    delay: 100,
+                  }}
+                />
+              </Typography>
+            </HomeDataSection>
+            <SocialMedia />
+          </Grid>
         </Grid>
-      </Grid>
-    </section>
+      </section>
+    </React.Fragment>
   );
 };
 

@@ -6,18 +6,25 @@ import ButtonAppBar from "./components/header/ButtonAppBar";
 import HeroSection from "./components/hero/HeroSection";
 import ProjectSection from "./components/projects/ProjectSection";
 import Skills from "./components/skills/SkillSection";
+import { styled } from "@mui/material/styles";
 
-function App() {  
+function App() {
+  const MainApp = styled("div")(({ theme }) => ({
+    backgroundColor: theme.palette.background.default,
+    zIndex: 100000,
+  }));
 
   return (
-    <div className="App">  
+    <div className="App">
       <ButtonAppBar />
       <HeroSection />
-      <AboutSection />
-      <Skills />
-      <ProjectSection />
-      <ContactSection />
-      <FooterSection />
+      <MainApp>
+        <AboutSection />
+        <Skills />
+        <ProjectSection />
+        <ContactSection />
+        <FooterSection />
+      </MainApp>
     </div>
   );
 }
