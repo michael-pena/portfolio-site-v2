@@ -1,13 +1,16 @@
+import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
 import MyResume from "../../static/Michael_Pena_Resume.pdf";
-import { NoEncryption } from "@mui/icons-material";
 
 export default function ButtonAppBar() {
   const pageSections = [
@@ -18,14 +21,17 @@ export default function ButtonAppBar() {
     { id: "Contact" },
   ];
 
-  const NavLinks = styled("li")(({ theme }) => ({
+  const NavLinks = styled("a")(({ theme }) => ({
+    color: theme.palette.text.primary,
+    textDecoration: "none",
+  }));
+
+  const NavListItem = styled("li")(({ theme }) => ({
+    color: theme.palette.text.primary,
+    listStyleType: "none",
     margin: "0",
     padding: "0 1rem",
     display: "inline",
-    a: {
-      color: theme.palette.text.primary,
-      textDecoration: "none",
-    },
   }));
 
   const ResumeButton = styled("a")(({ theme }) => ({
@@ -33,40 +39,112 @@ export default function ButtonAppBar() {
     textDecoration: "none",
   }));
 
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
   return (
     <header>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed">
-          <div className="bd-grid">
-            <Toolbar>
+      <AppBar position="fixed">
+        <div className="bd-grid">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
-                edge="start"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
                 color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                News
-              </Typography>
-              <ul listStyleType="none">
-                {pageSections.map((section) => (
-                  <NavLinks>
-                    <a href={`#${section.id.toLowerCase()}`}>{section.id}</a>
-                  </NavLinks>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {pageSections.map((page) => (
+                  <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                    <NavLinks href={`#${page.id.toLowerCase()}`}>
+                      {page.id}
+                    </NavLinks>
+                  </MenuItem>
+                ))}
+                <ResumeButton>
+                  <Button variant="outlined" color="inherit">
+                    Resume
+                  </Button>
+                </ResumeButton>
+              </Menu>
+            </Box>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "flex", md: "none" } }}
+            >
+              MP
+            </Typography>
+
+
+            <Typography
+              variant="h5"
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "none", md: "inline" } }}
+            >
+              MP
+            </Typography>
+            <Box
+              sx={{
+                display: { xs: "none", md: "inline" },
+              }}
+            >
+              <ul>
+                {pageSections.map((page) => (
+                  <NavListItem key={page.id}>
+                    <NavLinks href={`#${page.id.toLowerCase()}`}>
+                      {page.id}
+                    </NavLinks>
+                  </NavListItem>
                 ))}
               </ul>
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "none", md: "inline" },
+              }}
+            >
               <ResumeButton href={MyResume}>
-                <Button color="inherit" variant="outlined">
+                <Button variant="outlined" color="inherit">
                   Resume
                 </Button>
               </ResumeButton>
-            </Toolbar>
-          </div>
-        </AppBar>
-      </Box>
+            </Box>
+          </Toolbar>
+        </Container>
+        </div>
+      </AppBar>
     </header>
   );
 }

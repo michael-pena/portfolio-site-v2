@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Section from "../section/Section";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useForm, ValidationError } from "@formspree/react";
 
 const ContactForm = styled("div")(({ theme }) => ({
   margin: "0 auto 0 auto",
@@ -35,14 +34,14 @@ const ContactSubmitButton = styled(Button)(({ theme }) => ({
 }));
 
 const ContactSection = () => {
-  const [state, handleSubmit] = useForm("xbjwzljn");
-  if (state.succeeded) {
-    console.log("email sent!")
-  }
   return (
     <Section title="Contact">
       <ContactForm>
-        <form onSubmit={handleSubmit}>
+        <form
+          action="https://formspree.io/f/xbjwzljn"
+          method="POST"
+          encType="multipart/form-data"
+        >
           <ContactField
             id="email"
             name="email"
@@ -51,7 +50,7 @@ const ContactSection = () => {
             variant="filled"
             required
           />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
+
           <ContactField
             id="message"
             name="message"
@@ -62,12 +61,7 @@ const ContactSection = () => {
             rows="5"
             required
           />
-          <ValidationError
-            prefix="Message"
-            field="message"
-            errors={state.errors}
-          />
-          <ContactSubmitButton variant="contained" type="submit" disabled={state.submitting}>
+          <ContactSubmitButton variant="contained" type="submit">
             Submit
           </ContactSubmitButton>
         </form>
