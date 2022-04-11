@@ -17,12 +17,17 @@ const ParticlesArea = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        fpsLimit: 60,
+        background: {
+          color: {
+            value: "#121212",
+          },
+        },
+        fpsLimit: 60, 
         interactivity: {
           events: {
             onClick: {
               enable: true,
-              mode: "push",
+              mode: "grab",
             },
             onHover: {
               enable: true,
@@ -47,11 +52,11 @@ const ParticlesArea = () => {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: "#fff",
           },
           fullScreen: { enable: false },
           links: {
-            color: "#ffffff",
+            color: "#fff",
             distance: 150,
             enable: true,
             width: 1,
@@ -70,7 +75,7 @@ const ParticlesArea = () => {
           number: {
             density: {
               enable: true,
-              area: 1000,
+              area: 1200,
             },
             value: 80,
           },
@@ -79,7 +84,7 @@ const ParticlesArea = () => {
           },
           size: {
             random: true,
-            value: 5,
+            value: 3,
           },
         },
         detectRetina: true,
