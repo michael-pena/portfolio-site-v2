@@ -1,6 +1,8 @@
 import Particles from "react-tsparticles";
 
-const ParticlesArea = () => {
+
+const ParticlesArea = (theme) => {
+
   const particlesInit = (main) => {
     console.log(main);
 
@@ -52,12 +54,12 @@ const ParticlesArea = () => {
         },
         particles: {
           color: {
-            value: "#fff",
+            value: "423F3E",
           },
           fullScreen: { enable: false },
           links: {
-            color: "#fff",
-            distance: 150,
+            color: "423F3E",
+            distance: 170,
             enable: true,
             width: 1,
           },
@@ -89,7 +91,7 @@ const ParticlesArea = () => {
         },
         detectRetina: true,
       }}
-    />
+    />    
   );
 };
 export default ParticlesArea;
